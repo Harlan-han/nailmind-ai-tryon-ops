@@ -1,0 +1,1 @@
+"""NailMind backend application package."""

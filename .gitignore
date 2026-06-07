@@ -1,0 +1,71 @@
+# Private workspace metadata
+.superpowers/
+.uv-cache/
+.uv-python/
+AGENTS.md
+CLAUDE.md
+docs/
+test_generate.py
+
+# Local datasets and spreadsheets
+*.xlsx
+~$*.xlsx
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.coverage
+**/venv/
+
+# Node / Next.js
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+**/.vercel/
+**/*.tsbuildinfo
+
+# Secrets and local env files
+**/.env
+**/.env.*
+*.pem
+
+# Logs, preview artifacts, runtime state
+**/*.log
+**/*.err.log
+**/*.out.log
+**/*.pid
+**/.runtime/
+nailmind/logs/
+
+# Local databases and generated outputs
+nailmind/backend/nailmind.db
+nailmind/backend/data/*.json
+nailmind/backend/uploads/results/
+nailmind/ai-service/uploads/
+nailmind/backend/uploads/designs/originals/
+nailmind/backend/uploads/hands/*
+!nailmind/backend/uploads/hands/hand_??.jpg
+nailmind/backend/uploads/hands/*.txt
+nailmind/ai-service/debug_*.jpg
+nailmind/ai-service/test_result*.jpg
+nailmind/ai-service/nail_comparison.jpg
+
+# Public repo keeps curated local design covers only
+nailmind/backend/uploads/designs/*
+!nailmind/backend/uploads/designs/design_??.jpg
+
+# Internal or source-only helper files not needed in the public repo
+nailmind/backend/import_*_data.py
+nailmind/backend/preview.html
+nailmind/frontend/public/preview.html
+nailmind/scripts/.runtime/
+nailmind/使用教程.md

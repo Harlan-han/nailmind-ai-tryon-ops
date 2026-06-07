@@ -1,0 +1,1 @@
+"""NailMind AI service package."""
