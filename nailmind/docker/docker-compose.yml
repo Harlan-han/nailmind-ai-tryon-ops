@@ -25,7 +25,8 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - AI_SERVICE_URL=http://ai-service:8001
       - CORS_ORIGINS=http://123.207.77.38:3001
-      - SECRET_KEY=nailmind-prod-secret-2024
+      - SECRET_KEY=${SECRET_KEY:?Set SECRET_KEY before starting docker compose}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
     depends_on:
       - postgres
       - redis
@@ -40,6 +41,8 @@ services:
       - "8003:8001"
     environment:
       - BACKEND_WEBHOOK_URL=http://backend:8000/api/tryon/webhook/result
+      - RUNNINGHUB_API_KEY=${RUNNINGHUB_API_KEY:?Set RUNNINGHUB_API_KEY before starting docker compose}
+      - RUNNINGHUB_WORKFLOW_ID=${RUNNINGHUB_WORKFLOW_ID:-2032743911923392514}
     volumes:
       - ai_uploads:/app/uploads
 

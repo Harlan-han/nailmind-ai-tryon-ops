@@ -1,0 +1,55 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">NailMind repository cover</title>
+  <desc id="desc">NailMind is an AI nail try-on and operations intelligence platform.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7EFE3"/>
+      <stop offset="0.48" stop-color="#F3D7C3"/>
+      <stop offset="1" stop-color="#111111"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="201" y1="143" x2="1087" y2="526" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE87A"/>
+      <stop offset="0.45" stop-color="#D7A646"/>
+      <stop offset="1" stop-color="#FFF1B7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="34" flood-color="#2B1D13" flood-opacity="0.22"/>
+    </filter>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#111111" opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#dots)" opacity="0.45"/>
+  <circle cx="1114" cy="104" r="246" fill="#FFE87A" opacity="0.18"/>
+  <circle cx="90" cy="556" r="196" fill="#FFFFFF" opacity="0.32"/>
+  <path d="M863 63C979 88 1080 142 1148 226C1084 212 1021 222 958 256C875 301 805 301 728 263C651 225 584 231 523 281C542 187 654 31 863 63Z" fill="#111111" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <rect x="96" y="82" width="1088" height="476" rx="56" fill="#111111"/>
+    <rect x="98" y="84" width="1084" height="472" rx="54" stroke="url(#gold)" stroke-width="4" opacity="0.86"/>
+  </g>
+  <g transform="translate(158 129)">
+    <path d="M44 0L52.6 30.8L82 42L52.6 53.2L44 84L35.4 53.2L6 42L35.4 30.8L44 0Z" stroke="#FFE87A" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M91 0L96 17L112 23L96 29L91 46L86 29L70 23L86 17L91 0Z" fill="#FFE87A"/>
+  </g>
+  <text x="160" y="278" fill="#FFF9EA" font-family="Georgia, 'Times New Roman', serif" font-size="104" font-weight="700" letter-spacing="-2">NailMind</text>
+  <text x="164" y="336" fill="#FFE7A7" font-family="'Trebuchet MS', Verdana, sans-serif" font-size="30" font-weight="700" letter-spacing="4">AI NAIL TRY-ON · OPERATIONS INTELLIGENCE</text>
+  <text x="164" y="397" fill="#F6E9D5" font-family="'Trebuchet MS', Verdana, sans-serif" font-size="27" opacity="0.9">Consumer decisions meet merchant operations.</text>
+  <g transform="translate(164 442)">
+    <rect width="194" height="56" rx="28" fill="#FFF4D2"/>
+    <text x="30" y="36" fill="#111111" font-family="'Trebuchet MS', Verdana, sans-serif" font-size="20" font-weight="700">Virtual Try-on</text>
+    <rect x="214" width="206" height="56" rx="28" fill="#E6C27C"/>
+    <text x="244" y="36" fill="#111111" font-family="'Trebuchet MS', Verdana, sans-serif" font-size="20" font-weight="700">Style Assistant</text>
+    <rect x="440" width="260" height="56" rx="28" fill="#FFFFFF" opacity="0.88"/>
+    <text x="470" y="36" fill="#111111" font-family="'Trebuchet MS', Verdana, sans-serif" font-size="20" font-weight="700">Operations Agent</text>
+  </g>
+  <g transform="translate(835 154)">
+    <rect width="270" height="350" rx="36" fill="#FAF1E5"/>
+    <rect x="28" y="30" width="214" height="132" rx="26" fill="#111111"/>
+    <path d="M78 94C95 66 127 56 159 69C175 75 188 87 198 101C176 119 153 127 129 124C107 121 88 112 78 94Z" fill="url(#gold)"/>
+    <path d="M79 220C115 196 151 193 189 214" stroke="#111111" stroke-width="12" stroke-linecap="round"/>
+    <rect x="46" y="250" width="176" height="18" rx="9" fill="#D7A646"/>
+    <rect x="46" y="282" width="126" height="18" rx="9" fill="#111111" opacity="0.18"/>
+    <rect x="46" y="312" width="158" height="18" rx="9" fill="#111111" opacity="0.18"/>
+  </g>
+</svg>

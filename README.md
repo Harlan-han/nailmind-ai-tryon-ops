@@ -1,22 +1,32 @@
+<p align="center">
+  <img src="./assets/github-cover.png" alt="NailMind cover" width="100%" />
+</p>
+
 # NailMind
 
-NailMind 是一个面向美甲消费与经营场景的 AI 原生双端产品：一端帮助用户完成美甲试戴、筛选与决策，另一端帮助运营团队识别趋势、管理款式并生成可执行建议。
+**AI-native nail try-on and operations intelligence platform.**
 
-## 项目定位
+[Consumer App](http://123.207.77.38:3001/) · [Operations Console](http://123.207.77.38:3001/admin/) · [Deployment Guide](./DEPLOYMENT.md)
 
-- C 端：AI 美甲试戴、候选清单、多款对比、偏好画像、对话式选款助手
-- B 端：趋势分析、爆款/冷门识别、款式管理、建议中心、运营 Agent
-- 核心闭环：用户试戴行为沉淀为趋势信号，运营调整再反哺用户推荐与转化
+NailMind is a dual-sided product for beauty retail scenarios: the consumer side helps users try on nail designs, compare styles, manage candidates, and get AI-powered recommendations; the operations side helps teams read trend signals, manage designs, follow appointments, and generate actionable operation suggestions.
 
-## 主要能力
+> GitHub can display the repository, README, assets, and GitHub Pages static documentation. It cannot directly run this full-stack preview because NailMind needs a Next.js app, a FastAPI backend, and a separate AI generation service.
 
-- AI 试戴主链路：上传手照或使用预设手模，选择款式，调用 RunningHub 工作流生成结果
-- 决策辅助：候选清单、多款对比、偏好画像、个性化推荐
-- 用户侧助手：对话式推荐美甲风格与款式，并记录偏好信号
-- 运营侧洞察：趋势看板、冷门修复、建议中心、预约跟进、运营 Agent
-- 双端数据联动：试戴、收藏、候选、评论、预约等行为回流到运营分析侧
+## Product Scope
 
-## 技术架构
+- Consumer experience: AI nail try-on, saved hand profiles, candidate list, design comparison, preference profile, and a conversational style assistant.
+- Operations console: trend analytics, design management, cold-style repair, suggestion center, appointment follow-up, and operations Agent.
+- Core loop: user try-on behavior becomes trend signals; operations decisions then feed back into recommendations and conversion.
+
+## Key Capabilities
+
+- AI try-on flow: upload a hand photo or use preset hand profiles, choose a design, and generate results through a RunningHub workflow.
+- Decision support: candidates, comparisons, preference profile, personalized recommendations, comments, and appointments.
+- Consumer assistant: chat-based design discovery that recommends nail styles from template metadata and stores preference signals.
+- Operations intelligence: insights dashboard, unpopular-design recovery, suggestion center, appointment follow-up, and Agent-assisted operations.
+- Closed-loop data: try-ons, favorites, candidates, comments, appointments, and assistant conversations flow back into operational analysis.
+
+## Architecture
 
 ```text
 repo/
@@ -25,32 +35,32 @@ repo/
 │   ├── backend/       # FastAPI + SQLAlchemy
 │   ├── ai-service/    # FastAPI + RunningHub / OpenCV / MediaPipe
 │   ├── docker/        # Docker Compose scaffold
-│   └── scripts/       # 本地启动、验收、辅助脚本
+│   └── scripts/       # Local startup, acceptance, and helper scripts
 ├── 01_项目规范/
 ├── 02_产品规划/
 ├── 03_架构规划/
 └── 04_迭代路线/
 ```
 
-## 仓库内容说明
+## Repository Notes
 
-- `nailmind/` 是可运行代码
-- `02_产品规划/`、`03_架构规划/`、`04_迭代路线/` 保留了产品规划、信息架构与阶段路线
-- 仓库已剔除本地日志、数据库、生成结果图、私有工作流痕迹与敏感密钥
-- 仓库内保留了一组本地样例款式封面与官方手模，用于开箱演示
+- `nailmind/` contains the runnable product code.
+- `02_产品规划/`, `03_架构规划/`, and `04_迭代路线/` keep product planning, information architecture, system architecture, and roadmap notes.
+- Local logs, databases, generated try-on results, private workflow traces, and sensitive credentials are excluded from this public repository.
+- A small set of local design covers and hand-profile samples is included for demo and development.
 
-## 快速启动
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
-前端：
+Frontend:
 
 ```bash
 cd nailmind/frontend
 npm install
 ```
 
-后端：
+Backend:
 
 ```bash
 cd nailmind/backend
@@ -58,7 +68,7 @@ python -m venv venv
 venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-AI 服务：
+AI service:
 
 ```bash
 cd nailmind/ai-service
@@ -66,31 +76,31 @@ python -m venv venv
 venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-### 2. 配置环境变量
+### 2. Configure Environment Variables
 
-至少准备这些环境变量：
+Prepare these variables locally or on the server:
 
-- `RUNNINGHUB_API_KEY`：AI 试戴工作流调用
-- `DEEPSEEK_API_KEY`：用户助手与运营 Agent
-- `SECRET_KEY`：后端登录态签名
+- `RUNNINGHUB_API_KEY`: AI try-on workflow provider.
+- `DEEPSEEK_API_KEY`: consumer assistant and operations Agent.
+- `SECRET_KEY`: backend auth signing key.
 
-### 3. 启动本地预览
+Do not commit real keys. Use OS-level environment variables, a server-side secret manager, or ignored `.env` files.
 
-推荐直接使用仓库脚本：
+### 3. Start Local Preview
 
 ```powershell
 .\nailmind\scripts\start-local.ps1 -FrontendPort 3133 -BackendPort 8004 -AiPort 8003
 ```
 
-启动后默认访问：
+Default local URLs:
 
-- 用户端：`http://127.0.0.1:3133`
-- 运营端：`http://127.0.0.1:3133/admin/assistant`
-- 后端健康检查：`http://127.0.0.1:8004/health`
+- Consumer app: `http://127.0.0.1:3133`
+- Operations console: `http://127.0.0.1:3133/admin/assistant`
+- Backend health check: `http://127.0.0.1:8004/health`
 
-### 4. 初始化样例数据
+### 4. Seed Sample Data
 
-如果本地数据库为空，可执行：
+If the local database is empty:
 
 ```bash
 cd nailmind/backend
@@ -98,35 +108,46 @@ venv\Scripts\python.exe seed.py
 venv\Scripts\python.exe generate_mock_data.py
 ```
 
-## 验证命令
+## Deployment
 
-- 前端 lint：`cd nailmind/frontend && npm run lint`
-- 前端测试：`cd nailmind/frontend && npm test`
-- 前端构建：`cd nailmind/frontend && npm run build`
-- 后端单测：`cd nailmind/backend && venv\Scripts\python.exe -m unittest discover -s tests -v`
-- AI 服务单测：`cd nailmind/ai-service && venv\Scripts\python.exe -m unittest discover -s tests`
+Preview links:
 
-## 当前阶段
+- Consumer app: [http://123.207.77.38:3001/](http://123.207.77.38:3001/)
+- Operations console: [http://123.207.77.38:3001/admin/](http://123.207.77.38:3001/admin/)
 
-当前版本已经跑通：
+For setup details, environment variables, and verification commands, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
-- 用户试戴与记录链路
-- 账号隔离下的候选/评论/预约数据流
-- 用户侧选款助手
-- 运营侧趋势与建议闭环
-- RunningHub 真实生成链路接入
+## Verification
 
-## 后续计划
+- Frontend lint: `cd nailmind/frontend && npm run lint`
+- Frontend tests: `cd nailmind/frontend && npm test`
+- Frontend build: `cd nailmind/frontend && npm run build`
+- Backend tests: `cd nailmind/backend && venv\Scripts\python.exe -m unittest discover -s tests -v`
+- Backend compile check: `cd nailmind/backend && venv\Scripts\python.exe -m compileall app`
+- AI service tests: `cd nailmind/ai-service && venv\Scripts\python.exe -m unittest discover -s tests`
+- AI service compile check: `cd nailmind/ai-service && venv\Scripts\python.exe -m compileall app`
 
-- 真实手机号 / 邮箱 / 第三方登录
-- 更完整的云端部署与 HTTPS 化
-- 更细粒度的推荐算法与用户画像建模
-- 运营 Agent 的自动执行闭环
-- 更自然的试戴迁移效果和多模态理解能力
+## Current Status
 
-## 文档索引
+The current version supports:
 
-- 项目总览：[00_项目总览.md](./00_项目总览.md)
-- 产品规划：[02_产品规划](./02_产品规划)
-- 架构规划：[03_架构规划](./03_架构规划)
-- 迭代路线：[04_迭代路线](./04_迭代路线)
+- Consumer try-on and records flow.
+- Account-scoped candidates, comments, and appointment data.
+- Consumer-side style assistant.
+- Operations trend and suggestion loop.
+- Real RunningHub generation workflow integration.
+
+## Roadmap
+
+- Real phone, email, and third-party authentication.
+- HTTPS, domain binding, and production-grade cloud deployment.
+- More granular recommendation algorithms and preference modeling.
+- Operations Agent execution loop with safer approval controls.
+- More natural try-on transfer quality and multimodal understanding.
+
+## Planning Documents
+
+- Project overview: [00_项目总览.md](./00_项目总览.md)
+- Product planning: [02_产品规划](./02_产品规划)
+- Architecture planning: [03_架构规划](./03_架构规划)
+- Roadmap: [04_迭代路线](./04_迭代路线)
